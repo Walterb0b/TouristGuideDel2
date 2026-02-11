@@ -14,20 +14,75 @@ public class TouristRepository {
 
 
     public TouristRepository() {
-        attractions.add(new TouristAttraction("Tivoli",
-                "An amusement park in the middle of Copenhagen",
+        attractions.add(new TouristAttraction(
+                "Nyhavn",
+                "En historisk havn med farverige huse, restauranter og caféer",
                 Cities.COPENHAGEN,
-                List.of(Tags.KID_FRIENDLY, Tags.ENTERTAINMENT)));
+                List.of(Tags.FREE, Tags.HISTORY)
+        ));
 
-        attractions.add(new TouristAttraction("The Little Mermaid Statue",
-                "A statue depicting the little mermaid",
-                Cities.COPENHAGEN,
-                List.of(Tags.MUSEUM, Tags.HISTORY)));
+        attractions.add(new TouristAttraction(
+                "ARoS Kunstmuseum",
+                "Et moderne kunstmuseum kendt for den cirkulære regnbue på taget",
+                Cities.AARHUS,
+                List.of(Tags.MUSEUM, Tags.ENTERTAINMENT)
+        ));
 
-        attractions.add(new TouristAttraction("Rosenborg Castle",
-                "A renaissance castle built in the early 1600s",
-                Cities.COPENHAGEN,
-                List.of(Tags.HISTORY, Tags.MUSEUM)));
+        attractions.add(new TouristAttraction(
+                "Den Gamle By",
+                "Et frilandsmuseum der viser dansk byliv gennem historien",
+                Cities.AARHUS,
+                List.of(Tags.MUSEUM, Tags.HISTORY, Tags.KID_FRIENDLY)
+        ));
+
+        attractions.add(new TouristAttraction(
+                "Odense Zoo",
+                "En populær zoologisk have med dyr fra hele verden",
+                Cities.ODENSE,
+                List.of(Tags.KID_FRIENDLY, Tags.ENTERTAINMENT)
+        ));
+
+        attractions.add(new TouristAttraction(
+                "Aalborg Zoo",
+                "En familievenlig zoologisk have med fokus på naturbevarelse",
+                Cities.AALBORG,
+                List.of(Tags.KID_FRIENDLY, Tags.ENTERTAINMENT)
+        ));
+
+        attractions.add(new TouristAttraction(
+                "Legoland Billund",
+                "En forlystelsespark bygget af LEGO-klodser for hele familien",
+                Cities.VEJLE,
+                List.of(Tags.KID_FRIENDLY, Tags.ENTERTAINMENT)
+        ));
+
+        attractions.add(new TouristAttraction(
+                "Ribe Vikingecenter",
+                "Et levende museum der genskaber vikingernes liv og hverdag",
+                Cities.ESBJERG,
+                List.of(Tags.HISTORY, Tags.MUSEUM, Tags.KID_FRIENDLY)
+        ));
+
+        attractions.add(new TouristAttraction(
+                "Frederiksborg Slot",
+                "Et imponerende renæssanceslot omgivet af søer og haver",
+                Cities.HILLEROED,
+                List.of(Tags.HISTORY, Tags.MUSEUM)
+        ));
+
+        attractions.add(new TouristAttraction(
+                "Himmelbjerget",
+                "Et af Danmarks højeste punkter med flot udsigt over landskabet",
+                Cities.SILKEBORG,
+                List.of(Tags.FREE, Tags.HISTORY)
+        ));
+
+        attractions.add(new TouristAttraction(
+                "H.C. Andersens Hus",
+                "Et museum dedikeret til forfatteren H.C. Andersens liv og værker",
+                Cities.ODENSE,
+                List.of(Tags.MUSEUM, Tags.HISTORY)
+        ));
     }
 
     public List<TouristAttraction> getAllAttractions() {
