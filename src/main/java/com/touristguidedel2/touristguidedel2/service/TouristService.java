@@ -22,15 +22,15 @@ public class TouristService {
         return repository.getAttractionByName(name);
     }
 
-    public TouristAttraction addAttraction(TouristAttraction attraction) {
-        return repository.addAttraction(attraction);
+    public void addAttraction(TouristAttraction attraction) {
+        repository.addAttraction(attraction);
     }
 
     public void updateAttraction(TouristAttraction updatedAttraction) {
         repository.updateAttraction(updatedAttraction);
     }
 
-    public TouristAttraction deleteAttraction(String name) {
-        return repository.deleteAttraction(name);
+    public void deleteAttraction(String name) {
+        repository.deleteAttraction(name);
     }
 }
