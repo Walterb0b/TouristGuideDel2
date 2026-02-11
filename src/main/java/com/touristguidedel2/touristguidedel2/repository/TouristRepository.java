@@ -1,5 +1,6 @@
 package com.touristguidedel2.touristguidedel2.repository;
 
+import com.touristguidedel2.touristguidedel2.model.Tags;
 import com.touristguidedel2.touristguidedel2.model.TouristAttraction;
 import org.springframework.stereotype.Repository;
 
@@ -13,13 +14,16 @@ public class TouristRepository {
 
     public TouristRepository() {
         attractions.add(new TouristAttraction("Tivoli",
-                "An amusement park in the middle of Copenhagen"));
+                "An amusement park in the middle of Copenhagen",
+                List.of(Tags.KID_FRIENDLY, Tags.ENTERTAINMENT)));
 
-        attractions.add(new TouristAttraction("The Little Mermaid Statue ",
-                "A statue depicting the little mermaid"));
+        attractions.add(new TouristAttraction("The Little Mermaid Statue",
+                "A statue depicting the little mermaid",
+                List.of(Tags.MUSEUM, Tags.HISTORY)));
 
         attractions.add(new TouristAttraction("Rosenborg Castle",
-                "A renaissance castle built in the early 1600s"));
+                "A renaissance castle built in the early 1600s",
+                List.of(Tags.HISTORY, Tags.MUSEUM)));
     }
 
     public List<TouristAttraction> getAllAttractions() {

@@ -6,6 +6,7 @@ import com.touristguidedel2.touristguidedel2.service.TouristService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,11 +31,11 @@ public class TouristController {
     }
 
     @GetMapping("/{name}/tags")
-    public String getAttractionTags(Model model, @RequestParam String name) {
+    public String getAttractionTags(Model model, @PathVariable String name) {
         TouristAttraction touristAttraction = touristService.getAttractionByName(name);
 
         model.addAttribute("touristAttraction", touristAttraction);
-        model.addAttribute("tags", Tags.values());
+        model.addAttribute("tags", touristAttraction.getTags());
 
         return "tags";
 

@@ -2,14 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:value="${touristAttraction.name}"></title>
+    <title th:text="${touristAttraction.name}"></title>
 </head>
 <body>
-<h1 th:value="${touristAttraction.name}"></h1>
+<h1 th:text="${touristAttraction.name}"></h1>
 
 <table>
     <tr th:each="tag : ${tags}">
-        <td th:text="${tag.name()}"></td>
+        <td th:text="${tag}"></td>
     </tr>
 </table>
 </body>
