@@ -50,14 +50,15 @@ public class TouristRepository {
     }
 
 
-    public TouristAttraction updateAttraction(TouristAttraction updatedAttraction) {
-        for (int i = 0; i < attractions.size(); i++) {
-            if (attractions.get(i).getName().equals(updatedAttraction.getName())) {
-                attractions.set(i, updatedAttraction);
-                return updatedAttraction;
+    public void updateAttraction(TouristAttraction updatedAttraction) {
+        for (TouristAttraction touristAttraction : attractions) {
+            if (touristAttraction.getName().equals(updatedAttraction.getName())) {
+                touristAttraction.setDescription(updatedAttraction.getDescription());
+                touristAttraction.setCity(updatedAttraction.getCity());
+                touristAttraction.setTags(updatedAttraction.getTags());
+                return;
             }
         }
-        return null;
     }
 
 
