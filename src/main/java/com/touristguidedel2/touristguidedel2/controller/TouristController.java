@@ -33,6 +33,9 @@ public class TouristController {
     @GetMapping("/{name}/tags")
     public String getAttractionTags(Model model, @PathVariable String name) {
         TouristAttraction touristAttraction = touristService.getAttractionByName(name);
+        if(touristAttraction == null) {
+            throw new IllegalArgumentException("Invalid attraction!" + name);
+        }
 
         model.addAttribute("touristAttraction", touristAttraction);
         model.addAttribute("tags", touristAttraction.getTags());
