@@ -2,27 +2,27 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit attraction</title>
+    <title>Opdater attraktion</title>
     <link rel="stylesheet" th:href="@{/main.css}">
 </head>
 <body>
-<h1>Edit attraction</h1>
+<h1>Opdater attraktion</h1>
 
 <form action="#" th:action="@{/attractions/update}" th:object="${touristAttraction}" th:method="post">
 
-    <label>Name:</label>
+    <label>Navn:</label>
     <input type="text" th:value="*{name}" readonly>
 
     <input type="hidden" th:field="*{name}" />
 
     <br/>
 
-    <label>Description:</label>
+    <label>Beskrivelse:</label>
     <input type="text" th:field="*{description}" id="-description"/>
 
     <br/>
 
-    <label>City:</label>
+    <label>By:</label>
     <select th:field="*{city}">
         <option th:each="city : ${cities}"
                 th:value="${city}"
@@ -40,8 +40,8 @@
     <br/>
 
     <div>
-        <button type="submit">Update attraction</button>
-        <button th:href="@{/attractions}">Back</button>
+        <button type="submit">Opdater</button>
+        <button th:href="@{/attractions}">Tilbage</button>
     </div>
 
 </form>
