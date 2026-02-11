@@ -10,7 +10,7 @@
 
 <table>
     <tr th:each="tag : ${tags}">
-        <td th:text="${tag}"></td>
+        <td th:text="${tag.displayName}"></td>
     </tr>
 </table>
 <br/>
