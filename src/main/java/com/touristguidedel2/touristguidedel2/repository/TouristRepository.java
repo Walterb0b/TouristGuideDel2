@@ -15,14 +15,17 @@ public class TouristRepository {
     public TouristRepository() {
         attractions.add(new TouristAttraction("Tivoli",
                 "An amusement park in the middle of Copenhagen",
+                "Copenhagen",
                 List.of(Tags.KID_FRIENDLY, Tags.ENTERTAINMENT)));
 
         attractions.add(new TouristAttraction("The Little Mermaid Statue",
                 "A statue depicting the little mermaid",
+                "Copenhagen",
                 List.of(Tags.MUSEUM, Tags.HISTORY)));
 
         attractions.add(new TouristAttraction("Rosenborg Castle",
                 "A renaissance castle built in the early 1600s",
+                "Copenhagen",
                 List.of(Tags.HISTORY, Tags.MUSEUM)));
     }
 
