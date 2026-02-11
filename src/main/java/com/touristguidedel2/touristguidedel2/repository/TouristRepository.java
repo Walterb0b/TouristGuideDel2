@@ -1,5 +1,6 @@
 package com.touristguidedel2.touristguidedel2.repository;
 
+import com.touristguidedel2.touristguidedel2.model.Cities;
 import com.touristguidedel2.touristguidedel2.model.Tags;
 import com.touristguidedel2.touristguidedel2.model.TouristAttraction;
 import org.springframework.stereotype.Repository;
@@ -15,17 +16,17 @@ public class TouristRepository {
     public TouristRepository() {
         attractions.add(new TouristAttraction("Tivoli",
                 "An amusement park in the middle of Copenhagen",
-                "Copenhagen",
+                Cities.COPENHAGEN,
                 List.of(Tags.KID_FRIENDLY, Tags.ENTERTAINMENT)));
 
         attractions.add(new TouristAttraction("The Little Mermaid Statue",
                 "A statue depicting the little mermaid",
-                "Copenhagen",
+                Cities.COPENHAGEN,
                 List.of(Tags.MUSEUM, Tags.HISTORY)));
 
         attractions.add(new TouristAttraction("Rosenborg Castle",
                 "A renaissance castle built in the early 1600s",
-                "Copenhagen",
+                Cities.COPENHAGEN,
                 List.of(Tags.HISTORY, Tags.MUSEUM)));
     }
 
@@ -44,9 +45,8 @@ public class TouristRepository {
     }
 
 
-    public TouristAttraction addAttraction(TouristAttraction attraction) {
+    public void addAttraction(TouristAttraction attraction) {
         attractions.add(attraction);
-        return attraction;
     }
 
 
@@ -62,13 +62,7 @@ public class TouristRepository {
     }
 
 
-    public TouristAttraction deleteAttraction(String name) {
-        for (TouristAttraction t : attractions) {
-            if (t.getName().equals(name)) {
-                attractions.remove(t);
-                return t;
-            }
-        }
-        return null;
+    public void deleteAttraction(String name) {
+        attractions.removeIf(t -> t.getName().equals(name));
     }
 }

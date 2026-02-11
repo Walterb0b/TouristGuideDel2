@@ -64,4 +64,25 @@ public class TouristController {
         touristService.updateAttraction(touristAttraction);
         return "redirect:/attractions";
     }
+
+    @GetMapping("/add")
+    public String addAttraction(Model model) {
+        TouristAttraction touristAttraction = new TouristAttraction();
+        model.addAttribute("touristAttraction", touristAttraction);
+        model.addAttribute("cities", Cities.values());
+        model.addAttribute("tags", Tags.values());
+        return "addAttraction";
+    }
+
+    @PostMapping("/save")
+    public String saveAttraction(@ModelAttribute TouristAttraction touristAttraction) {
+        touristService.addAttraction(touristAttraction);
+        return "redirect:/attractions";
+    }
+
+    @PostMapping("/{name}/delete")
+    public String deleteAttraction(@PathVariable String name) {
+        touristService.deleteAttraction(name);
+        return "redirect:/attractions";
+    }
 }

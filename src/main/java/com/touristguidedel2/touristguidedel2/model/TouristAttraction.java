@@ -5,15 +5,17 @@ import java.util.List;
 public class TouristAttraction {
     private String name;
     private String description;
-    private String city;
+    private Cities city;
     private List<Tags> tags;
 
-    public TouristAttraction(String name, String description, String city, List<Tags> tags) {
+    public TouristAttraction(String name, String description, Cities city, List<Tags> tags) {
         this.name = name;
         this.description = description;
         this.city = city;
         this.tags = tags;
     }
+
+    public TouristAttraction(){}
 
     public String getName() {
         return name;
@@ -37,11 +39,11 @@ public class TouristAttraction {
         this.tags = tags;
     }
 
-    public String getCity() {
+    public Cities getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(Cities city) {
         this.city = city;
     }
 }
