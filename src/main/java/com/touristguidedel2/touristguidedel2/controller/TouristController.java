@@ -1,14 +1,12 @@
 package com.touristguidedel2.touristguidedel2.controller;
 
+import com.touristguidedel2.touristguidedel2.model.Cities;
 import com.touristguidedel2.touristguidedel2.model.Tags;
 import com.touristguidedel2.touristguidedel2.model.TouristAttraction;
 import com.touristguidedel2.touristguidedel2.service.TouristService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,5 +40,28 @@ public class TouristController {
 
         return "tags";
 
+    }
+
+    //Display the Attraction edit form
+    @GetMapping("/{name}/edit")
+    public String editAttraction(@PathVariable String name, Model model) {
+        TouristAttraction touristAttraction = touristService.getAttractionByName(name);
+
+        if(touristAttraction == null) {
+            throw new IllegalArgumentException("Invalid attraction! " + name);
+        }
+
+        model.addAttribute("touristAttraction", touristAttraction);
+        model.addAttribute("cities", Cities.values());
+        model.addAttribute("tags", Tags.values());
+
+        return "updateAttraction";
+    }
+
+    //Handle the form submission
+    @PostMapping("/update")
+    public String editAttraction(@ModelAttribute TouristAttraction touristAttraction) {
+        touristService.updateAttraction(touristAttraction);
+        return "redirect:/attractions";
     }
 }
