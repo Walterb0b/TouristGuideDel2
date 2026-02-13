@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom, #f4f4f4, #e6f2ff);
+    color: #333;
+}
+
+/* NAV */
+nav {
+    background-color: #003366;
+    padding: 12px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(to right, #003366, #0059b3);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+/* GRID */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 25px;
+}
+
+/* CARDS */
+section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+section:hover {
+    transform: translateY(-3px);
+}
+
+section h2 {
+    color: #003366;
+}
+
+/* IMAGE */
+img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* LINKS */
+section a {
+    color: #0059b3;
+    font-weight: 600;
+}
+
+section a:hover {
+    text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* TABLET */
+@media (min-width: 600px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* DESKTOP */
+@media (min-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin: auto;
+    }
+}
