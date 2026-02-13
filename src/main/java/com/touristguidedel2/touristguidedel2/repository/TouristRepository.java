@@ -14,6 +14,46 @@ public class TouristRepository {
 
 
     public TouristRepository() {
+        populate();
+    }
+
+    public List<TouristAttraction> getAllAttractions() {
+        return attractions;
+    }
+
+
+    public TouristAttraction getAttractionByName(String name) {
+        for (TouristAttraction attraction : attractions) {
+            if (attraction.getName().equalsIgnoreCase(name)) {
+                return attraction;
+            }
+        }
+        return null;
+    }
+
+
+    public void addAttraction(TouristAttraction attraction) {
+        attractions.add(attraction);
+    }
+
+
+    public void updateAttraction(TouristAttraction updatedAttraction) {
+        for (TouristAttraction touristAttraction : attractions) {
+            if (touristAttraction.getName().equals(updatedAttraction.getName())) {
+                touristAttraction.setDescription(updatedAttraction.getDescription());
+                touristAttraction.setCity(updatedAttraction.getCity());
+                touristAttraction.setTags(updatedAttraction.getTags());
+                return;
+            }
+        }
+    }
+
+
+    public void deleteAttraction(String name) {
+        attractions.removeIf(t -> t.getName().equals(name));
+    }
+
+    private void populate() {
         attractions.add(new TouristAttraction(
                 "Nyhavn",
                 "En historisk havn med farverige huse, restauranter og caféer",
@@ -83,41 +123,5 @@ public class TouristRepository {
                 Cities.ODENSE,
                 List.of(Tags.MUSEUM, Tags.HISTORY)
         ));
-    }
-
-    public List<TouristAttraction> getAllAttractions() {
-        return attractions;
-    }
-
-
-    public TouristAttraction getAttractionByName(String name) {
-        for (TouristAttraction attraction : attractions) {
-            if (attraction.getName().equalsIgnoreCase(name)) {
-                return attraction;
-            }
-        }
-        return null;
-    }
-
-
-    public void addAttraction(TouristAttraction attraction) {
-        attractions.add(attraction);
-    }
-
-
-    public void updateAttraction(TouristAttraction updatedAttraction) {
-        for (TouristAttraction touristAttraction : attractions) {
-            if (touristAttraction.getName().equals(updatedAttraction.getName())) {
-                touristAttraction.setDescription(updatedAttraction.getDescription());
-                touristAttraction.setCity(updatedAttraction.getCity());
-                touristAttraction.setTags(updatedAttraction.getTags());
-                return;
-            }
-        }
-    }
-
-
-    public void deleteAttraction(String name) {
-        attractions.removeIf(t -> t.getName().equals(name));
     }
 }
