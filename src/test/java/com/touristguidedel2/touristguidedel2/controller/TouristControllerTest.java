@@ -32,7 +32,7 @@ class TouristControllerTest {
     @Test
     void getAllAttractions() throws Exception {
         List<TouristAttraction> attractions = new ArrayList<>();
-        attractions.add(new TouristAttraction("Legoland", "Forlystelsespark", Cities.VEJLE, List.of(Tags.ENTERTAINMENT, Tags.KID_FRIENDLY)));
+        attractions.add(new TouristAttraction("Legoland", "Forlystelsespark", Cities.VEJLE, List.of(Tags.ENTERTAINMENT, Tags.KID_FRIENDLY), 299.0));
 
         when(touristService.getAllAttractions()).thenReturn(attractions);
 
@@ -45,7 +45,7 @@ class TouristControllerTest {
 
     @Test
     void saveAttraction() throws Exception{
-        TouristAttraction touristAttraction = new TouristAttraction("Legoland", "Forlystelsespark", Cities.VEJLE, List.of(Tags.ENTERTAINMENT, Tags.KID_FRIENDLY));
+        TouristAttraction touristAttraction = new TouristAttraction("Legoland", "Forlystelsespark", Cities.VEJLE, List.of(Tags.ENTERTAINMENT, Tags.KID_FRIENDLY), 299.0);
 
         mockMvc.perform(post("/attractions/save")
                 .param("name", touristAttraction.getName())

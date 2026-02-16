@@ -39,6 +39,10 @@
 
     <br/>
 
+    <label>Pris (DKK):</label>
+    <input type="number" th:field="*{price}" min="0" step="0.01">
+    <br/>
+
     <div>
         <button type="submit">Opdater</button>
         <button th:href="@{/attractions}">Tilbage</button>
