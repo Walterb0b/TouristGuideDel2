@@ -7,12 +7,14 @@ public class TouristAttraction {
     private String description;
     private Cities city;
     private List<Tags> tags;
+    private double price;
 
-    public TouristAttraction(String name, String description, Cities city, List<Tags> tags) {
+    public TouristAttraction(String name, String description, Cities city, List<Tags> tags, double price) {
         this.name = name;
         this.description = description;
         this.city = city;
         this.tags = tags;
+        this.price = price;
     }
 
     public TouristAttraction(){}
@@ -45,5 +47,13 @@ public class TouristAttraction {
 
     public void setCity(Cities city) {
         this.city = city;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

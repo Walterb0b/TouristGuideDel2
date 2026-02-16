@@ -26,9 +26,9 @@
         <td th:text="${attraction.description}"></td>
         <td th:text="${attraction.city.displayName}"></td>
 
-        <td th:text="${attraction.price != null ? attraction.price + ' DKK' : 'Gratis'}"></td>
+        <td th:text="${attraction.price != 0.0 ? attraction.price + ' DKK' : 'Gratis'}"></td>
 
-        <td th:text="${attraction.price != null ? #numbers.formatDecimal(attraction.price / 7.45, 1, 2, 'COMMA') + ' EUR' : 'Gratis'}"></td>
+        <td th:text="${attraction.price != 0.0 ? #numbers.formatDecimal(attraction.price / 7.45, 1, 2, 'COMMA') + ' EUR' : 'Gratis'}"></td>
 
         <td>
             <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}">
@@ -54,6 +54,9 @@
 
 <a th:href="@{/attractions/add}">
     <button type="button">Tilføj attraktion</button>
+</a>
+<a th:href="@{/}">
+    <button type="button">Tilbage</button>
 </a>
 
 </body>

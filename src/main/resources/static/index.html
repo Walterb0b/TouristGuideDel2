@@ -2,7 +2,7 @@
 <html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>Turistguide – København</title>
+    <title>Turistguide Danmark</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,68 +11,121 @@
 
 <nav>
     <ul>
-        <li><a href="/">Hjem</a></li>
-        <li><a href="/attractions">Alle attraktioner</a></li>
-        <li><a href="/attractions/Tivoli/tags">Oplev Tivoli</a></li>
+        <li><a href="/">🏠 Hjem</a></li>
+        <li><a href="/attractions">🎫 Alle attraktioner</a></li>
     </ul>
 </nav>
 
 <header>
-    <h1>Oplev København</h1>
-    <p>Find inspiration til seværdigheder, oplevelser og klassiske must-sees.</p>
+    <h1>Opdag Danmark</h1>
+    <p>Oplev de bedste attraktioner i hele Danmark - fra køkkenet i København til legeland i Billund</p>
 </header>
 
 <main class="grid-container">
 
-    <section>
-        <h2>Velkommen</h2>
+    <section class="welcome-card">
+        <h2>Velkommen til Danmarks Turistguide</h2>
         <p>
-            København byder på en unik blanding af historie, kultur og moderne storbyliv.
-            Her finder du inspiration til nogle af byens mest populære oplevelser –
-            perfekt til både første besøg og nye eventyr.
+            Danmark er et land fuldt af eventyr, kultur og naturskønhed.
+            Uanset om du interesserer dig for historie, underholdning eller familievenligheder,
+            finder du her de bedste oplevelser hele landet rundt.
         </p>
+        <a href="/attractions" class="cta-button">Se alle attraktioner →</a>
     </section>
 
-    <section>
-        <h2>Populære oplevelser</h2>
+    <section class="attraction-card">
+        <h3>🏛️ Nyhavn</h3>
+        <p class="description">En historisk havn med farverige huse, restauranter og caféer</p>
+        <div class="location">📍 København</div>
+        <div class="price">Gratis</div>
+        <div class="tags"><span class="tag">Gratis</span><span class="tag"> Historie</span></div>
+    </section>
+
+    <section class="attraction-card">
+        <h3>🎨 ARoS Kunstmuseum</h3>
+        <p class="description">Et moderne kunstmuseum kendt for den cirkulære regnbue på taget</p>
+        <div class="location">📍 Aarhus</div>
+        <div class="price">150 DKK</div>
+        <div class="tags"><span class="tag">Museum</span><span class="tag"> Underholdning</span></div>
+    </section>
+
+    <section class="attraction-card">
+        <h3>🏰 Den Gamle By</h3>
+        <p class="description">Et frilandsmuseum der viser dansk byliv gennem historien</p>
+        <div class="location">📍 Aarhus</div>
+        <div class="price">120 DKK</div>
+        <div class="tags"><span class="tag">Museum</span><span class="tag"> Historie</span><span class="tag"> Familievenlighed</span></div>
+    </section>
+
+    <section class="attraction-card">
+        <h3>🦁 Odense Zoo</h3>
+        <p class="description">En populær zoologisk have med dyr fra hele verden</p>
+        <div class="location">📍 Odense</div>
+        <div class="price">100 DKK</div>
+        <div class="tags"><span class="tag">Familievenlighed</span><span class="tag"> Underholdning</span></div>
+    </section>
+
+    <section class="attraction-card">
+        <h3>🐘 Aalborg Zoo</h3>
+        <p class="description">En familievenlig zoologisk have med fokus på naturbevarelse</p>
+        <div class="location">📍 Aalborg</div>
+        <div class="price">150 DKK</div>
+        <div class="tags"><span class="tag">Familievenlighed</span><span class="tag"> Underholdning</span></div>
+    </section>
+
+    <section class="attraction-card">
+        <h3>🧱 Legoland Billund</h3>
+        <p class="description">En forlystelsespark bygget af LEGO-klodser for hele familien</p>
+        <div class="location">📍 Vejle</div>
+        <div class="price">299 DKK</div>
+        <div class="tags"><span class="tag">Familievenlighed</span><span class="tag"> Underholdning</span></div>
+    </section>
+
+    <section class="attraction-card">
+        <h3>⚔️ Ribe Vikingecenter</h3>
+        <p class="description">Et levende museum der genskaber vikingernes liv og hverdag</p>
+        <div class="location">📍 Esbjerg</div>
+        <div class="price">150 DKK</div>
+        <div class="tags"><span class="tag">Historie</span><span class="tag"> Museum</span><span class="tag"> Familievenlighed</span></div>
+    </section>
+
+    <section class="attraction-card">
+        <h3>👑 Frederiksborg Slot</h3>
+        <p class="description">Et imponerende renæssanceslot omgivet af søer og haver</p>
+        <div class="location">📍 Hillerød</div>
+        <div class="price">99,95 DKK</div>
+        <div class="tags"><span class="tag">Historie</span><span class="tag"> Museum</span></div>
+    </section>
+
+    <section class="attraction-card">
+        <h3>⛰️ Himmelbjerget</h3>
+        <p class="description">Et af Danmarks højeste punkter med flot udsigt over landskabet</p>
+        <div class="location">📍 Silkeborg</div>
+        <div class="price">Gratis</div>
+        <div class="tags"><span class="tag">Gratis</span><span class="tag"> Historie</span></div>
+    </section>
+
+    <section class="attraction-card">
+        <h3>📚 H.C. Andersens Hus</h3>
+        <p class="description">Et museum dedikeret til forfatteren H.C. Andersens liv og værker</p>
+        <div class="location">📍 Odense</div>
+        <div class="price">115 DKK</div>
+        <div class="tags"><span class="tag">Museum</span><span class="tag"> Historie</span></div>
+    </section>
+
+    <section class="info-section">
+        <h2>📅 Planér dit besøg</h2>
+        <p>Find information om åbningstider, transport og mere:</p>
         <ul>
-            <li>Tivoli – eventyr midt i byen</li>
-            <li>️Den Lille Havfrue</li>
-            <li>Rosenborg Slot</li>
+            <li><a href="https://www.visitdenmark.dk" target="_blank">Visit Denmark - Inspiration og events</a></li>
+            <li><a href="https://dinoffentligetransport.dk" target="_blank">Din Offentlige Transport - Billetter og ruter</a></li>
         </ul>
     </section>
-
-    <section>
-        <h2>Planlæg dit besøg</h2>
-        <ul>
-            <li>
-                <a href="https://www.visitcopenhagen.dk" target="_blank">
-                    Inspiration og events i København
-                </a>
-            </li>
-            <li>
-                <a href="https://dinoffentligetransport.dk" target="_blank">
-                    Transport og billetter i byen
-                </a>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Udforsk mere</h2>
-        <p>Klar til at dykke dybere ned i byens seværdigheder?</p>
-        <ul>
-            <li><a href="/attractions">Se alle oplevelser</a></li>
-            <li><a href="/attractions/Tivoli">Læs om Tivoli</a></li>
-        </ul>
-    </section>
-
-    <img src="images/Copenhagen-skyline.jpg" alt="København skyline">
 
 </main>
 
 <footer>
-    <p> Turistguide København · E-Mail: touristguide@demo.dk · Tlf: +45 1234 5678</p>
+    <p>🚀 Turistguide Danmark · E-Mail: touristguide@demo.dk · Tlf: +45 1234 5678</p>
 </footer>
 
 </body>

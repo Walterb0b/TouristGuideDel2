@@ -61,28 +61,142 @@ section {
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 section:hover {
     transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 section h2 {
     color: #003366;
 }
 
-/* IMAGE */
-img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+/* ATTRACTION CARDS */
+.attraction-card {
+    border-left: 5px solid #0059b3;
+    display: flex;
+    flex-direction: column;
 }
+
+.attraction-card h3 {
+    color: #003366;
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.attraction-card .description {
+    color: #555;
+    font-style: italic;
+    margin: 10px 0;
+    flex-grow: 1;
+}
+
+.attraction-card .location {
+    color: #0059b3;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+.attraction-card .price {
+    background-color: #f0f0f0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #003366;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.tag {
+    background-color: #e8f0f7;
+    color: #003366;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #b3d9ff;
+}
+
+/* WELCOME CARD */
+.welcome-card {
+    background: linear-gradient(135deg, #003366 0%, #0059b3 100%);
+    color: white !important;
+    grid-column: 1 / -1;
+}
+
+.welcome-card h2 {
+    color: white;
+    margin-top: 0;
+}
+
+.welcome-card p {
+    color: white;
+}
+
+.welcome-card .cta-button {
+    display: inline-block;
+    background-color: white;
+    color: #003366;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.welcome-card .cta-button:hover {
+    background-color: #f0f0f0;
+}
+
+/* INFO SECTION */
+.info-section {
+    grid-column: 1 / -1;
+    background-color: #f9f9f9;
+}
+
+.info-section h2 {
+    margin-top: 0;
+}
+
+.info-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-section li {
+    margin: 10px 0;
+}
+
+.info-section a {
+    color: #0059b3;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.info-section a:hover {
+    color: #003366;
+    text-decoration: underline;
+}
+
+/* IMAGE */
+/* Billeder fjernet - bruger kun tekstkort nu */
 
 /* LINKS */
 section a {
     color: #0059b3;
     font-weight: 600;
+    text-decoration: none;
 }
 
 section a:hover {
