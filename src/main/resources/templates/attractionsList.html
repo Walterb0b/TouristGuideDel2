@@ -26,10 +26,9 @@
         <td th:text="${attraction.description}"></td>
         <td th:text="${attraction.city.displayName}"></td>
 
-        <td th:text="${attraction.price != null} ? attraction.price + ' DKK' : 'Gratis'"></td>
+        <td th:text="${attraction.price != null ? attraction.price + ' DKK' : 'Gratis'}"></td>
 
-        <td th:text="${#numbers.formatDecimal(attraction.price / 7.45, 2, 2)} + ' EUR'"></td>
-
+        <td th:text="${attraction.price != null ? #numbers.formatDecimal(attraction.price / 7.45, 1, 2, 'COMMA') + ' EUR' : 'Gratis'}"></td>
 
         <td>
             <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}">
@@ -38,8 +37,7 @@
         </td>
 
         <td>
-            <form th:action="@{/attractions/{name}/delete(name=${attraction.name})}"
-                  method="post">
+            <form th:action="@{/attractions/{name}/delete(name=${attraction.name})}" method="post">
                 <button type="submit">Slet</button>
             </form>
         </td>
@@ -49,7 +47,6 @@
                 <button type="button">Tags</button>
             </a>
         </td>
-
     </tr>
 </table>
 
