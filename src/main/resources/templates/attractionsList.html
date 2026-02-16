@@ -26,14 +26,10 @@
         <td th:text="${attraction.description}"></td>
         <td th:text="${attraction.city.displayName}"></td>
 
-        <!-- Sikker DKK visning -->
         <td th:text="${attraction.price != null} ? attraction.price + ' DKK' : 'Gratis'"></td>
 
-        <!-- Sikker EUR konvertering -->
-        <td th:text="${attraction.price != null} ?
-                      #numbers.formatDecimal(attraction.price / 7.45, 2, 'POINT') + ' EUR'
-                      : '-'">
-        </td>
+        <td th:text="${#numbers.formatDecimal(attraction.price / 7.45, 2, 2)} + ' EUR'"></td>
+
 
         <td>
             <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}">
