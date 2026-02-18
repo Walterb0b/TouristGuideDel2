@@ -2,52 +2,73 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tilføj turistattraktion</title>
-    <link th:href="@{/main.css}" rel="stylesheet">
+    <link th:href="@{/styles.css}" rel="stylesheet">
 </head>
 <body>
 
-<form action="#" th:action="@{/attractions/save}" th:object="${touristAttraction}" method="post">
+<nav>
+    <ul>
+        <li><a href="/">🏠 Hjem</a></li>
+        <li><a href="/attractions">🎫 Alle attraktioner</a></li>
+    </ul>
+</nav>
+
+<header>
     <h1>Tilføj turistattraktion</h1>
+    <p>Opret en ny attraktion til vores database</p>
+</header>
 
-    <label>
-        Navn
-        <input type="text" th:field="*{name}">
-    </label>
-    <br>
-    <label>
-        Beskrivelse
-        <input type="text" th:field="*{description}">
-    </label>
-    <br>
-    <label>
-        By
-        <select th:field="*{city}">
-            <option th:each="city: ${cities}"
-                    th:value="${city}"
-                    th:text="${city.displayName}">
-            </option>
-        </select>
-    </label>
-    <br>
-    <label>
-        Tags
-        <div th:each="tag: ${tags}">
-            <input type="checkbox" th:field="*{tags}" th:value="${tag}">
-            <span th:text="${tag.displayName}"></span>
-        </div>
-    </label>
-    <br>
+<main class="grid-container">
+    <section class="form-card">
+        <h2 class="form-title">✨ Ny Attraktion</h2>
+        <form action="#" th:action="@{/attractions/save}" th:object="${touristAttraction}" method="post">
+            <div class="form-group">
+                <label for="name">Navn</label>
+                <input type="text" id="name" th:field="*{name}" required>
+            </div>
 
-    <label>
-        pris (DKK)
-        <input type="number" th:field="*{price}" min="0" step="0.01" required>
-    </label>
-    <br>
+            <div class="form-group">
+                <label for="description">Beskrivelse</label>
+                <textarea id="description" th:field="*{description}" required rows="3"></textarea>
+            </div>
 
-    <button type="submit">Opret Attraktion</button>
+            <div class="form-group">
+                <label for="city">By</label>
+                <select id="city" th:field="*{city}" required>
+                    <option value="">Vælg en by</option>
+                    <option th:each="city: ${cities}"
+                            th:value="${city}"
+                            th:text="${city.displayName}">
+                    </option>
+                </select>
+            </div>
 
-</form>
+            <div class="form-group">
+                <label>Tags</label>
+                <div th:each="tag: ${tags}" class="checkbox-item">
+                    <input type="checkbox" th:field="*{tags}" th:value="${tag}" th:id="'tag-' + ${tag}">
+                    <label th:for="'tag-' + ${tag}" th:text="${tag.displayName}"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Pris (DKK)</label>
+                <input type="number" id="price" th:field="*{price}" min="0" step="0.01" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">✅ Opret Attraktion</button>
+                <a href="/attractions"><button type="button">← Tilbage</button></a>
+            </div>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>🚀 Turistguide Danmark · E-Mail: touristguide@demo.dk · Tlf: +45 1234 5678</p>
+</footer>
 
 </body>
 </html>
