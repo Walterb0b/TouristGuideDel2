@@ -2,62 +2,73 @@
 <html lang="da" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attraktioner</title>
-    <link rel="stylesheet" th:href="@{/main.css}">
+    <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
 
-<h1>Alle attraktioner</h1>
+<nav>
+    <ul>
+        <li><a href="/">🏠 Hjem</a></li>
+        <li><a href="/attractions">🎫 Alle attraktioner</a></li>
+    </ul>
+</nav>
 
-<table>
-    <tr th:if="${!attractions.isEmpty()}">
-        <th>Navn</th>
-        <th>Beskrivelse</th>
-        <th>By</th>
-        <th>Pris (DKK)</th>
-        <th>Pris (EUR)</th>
-        <th>Opdater</th>
-        <th>Slet</th>
-        <th>Tags</th>
-    </tr>
+<header>
+    <h1>📋 Alle Attraktioner</h1>
+    <p>Se og håndtér alle turistattraktioner i Danmark</p>
+</header>
 
-    <tr th:each="attraction : ${attractions}">
-        <td th:text="${attraction.name}"></td>
-        <td th:text="${attraction.description}"></td>
-        <td th:text="${attraction.city.displayName}"></td>
+<main class="grid-container">
+    <section class="table-section" style="grid-column: 1 / -1; overflow-x: auto; padding: 20px;">
+        <table style="width: 100%; border-collapse: collapse; background-color: white;">
+            <thead>
+                <tr style="background-color: #f0f0f0; border-bottom: 2px solid #0059b3;">
+                    <th style="padding: 12px 8px; text-align: left; color: #003366; font-weight: 600; font-size: 0.85rem;">Navn</th>
+                    <th style="padding: 12px 8px; text-align: left; color: #003366; font-weight: 600; font-size: 0.85rem;">Beskrivelse</th>
+                    <th style="padding: 12px 8px; text-align: left; color: #003366; font-weight: 600; font-size: 0.85rem;">By</th>
+                    <th style="padding: 12px 8px; text-align: left; color: #003366; font-weight: 600; font-size: 0.85rem;">Pris (DKK)</th>
+                    <th style="padding: 12px 8px; text-align: left; color: #003366; font-weight: 600; font-size: 0.85rem;">Pris (EUR)</th>
+                    <th style="padding: 12px 8px; text-align: left; color: #003366; font-weight: 600; font-size: 0.85rem;">Handlinger</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="attraction : ${attractions}" style="border-bottom: 1px solid #e0e0e0;">
+                    <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle;" th:text="${attraction.name}"></td>
+                    <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle; max-width: 150px; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;" th:text="${attraction.description}"></td>
+                    <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle;" th:text="${attraction.city.displayName}"></td>
+                    <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle;" th:text="${attraction.price != 0.0 ? attraction.price + ' DKK' : 'Gratis'}"></td>
+                    <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle;" th:text="${attraction.price != 0.0 ? #numbers.formatDecimal(attraction.price / 7.45, 1, 2, 'COMMA') + ' EUR' : 'Gratis'}"></td>
+                    <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle; white-space: normal; min-width: 140px;">
+                        <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}" style="display: block; margin-bottom: 6px;">
+                            <button type="button" style="padding: 6px 10px; font-size: 0.8rem; background-color: #0059b3; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%;">✏️ Rediger</button>
+                        </a>
+                        <a th:href="@{/attractions/{name}/tags(name=${attraction.name})}" style="display: block; margin-bottom: 6px;">
+                            <button type="button" style="padding: 6px 10px; font-size: 0.8rem; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%;">🏷️ Tags</button>
+                        </a>
+                        <form th:action="@{/attractions/{name}/delete(name=${attraction.name})}" method="post" style="display: block;">
+                            <button type="submit" style="padding: 6px 10px; font-size: 0.8rem; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%;">🗑️ Slet</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-        <td th:text="${attraction.price != 0.0 ? attraction.price + ' DKK' : 'Gratis'}"></td>
-
-        <td th:text="${attraction.price != 0.0 ? #numbers.formatDecimal(attraction.price / 7.45, 1, 2, 'COMMA') + ' EUR' : 'Gratis'}"></td>
-
-        <td>
-            <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}">
-                <button type="button">Opdater</button>
+        <div class="form-actions">
+            <a th:href="@{/attractions/add}">
+                <button type="button">✨ Tilføj attraktion</button>
             </a>
-        </td>
-
-        <td>
-            <form th:action="@{/attractions/{name}/delete(name=${attraction.name})}" method="post">
-                <button type="submit">Slet</button>
-            </form>
-        </td>
-
-        <td>
-            <a th:href="@{/attractions/{name}/tags(name=${attraction.name})}">
-                <button type="button">Tags</button>
+            <a href="/">
+                <button type="button">← Tilbage til hjem</button>
             </a>
-        </td>
-    </tr>
-</table>
+        </div>
+    </section>
+</main>
 
-<br/>
-
-<a th:href="@{/attractions/add}">
-    <button type="button">Tilføj attraktion</button>
-</a>
-<a th:href="@{/}">
-    <button type="button">Tilbage</button>
-</a>
+<footer>
+    <p>🚀 Turistguide Danmark · E-Mail: touristguide@demo.dk · Tlf: +45 1234 5678</p>
+</footer>
 
 </body>
 </html>
