@@ -43,6 +43,7 @@ public class TouristRepository {
                 touristAttraction.setDescription(updatedAttraction.getDescription());
                 touristAttraction.setCity(updatedAttraction.getCity());
                 touristAttraction.setTags(updatedAttraction.getTags());
+                touristAttraction.setPrice(updatedAttraction.getPrice());
                 return;
             }
         }

@@ -39,7 +39,7 @@
                     <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle; max-width: 150px; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;" th:text="${attraction.description}"></td>
                     <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle;" th:text="${attraction.city.displayName}"></td>
                     <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle;" th:text="${attraction.price != 0.0 ? attraction.price + ' DKK' : 'Gratis'}"></td>
-                    <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle;" th:text="${attraction.price != 0.0 ? #numbers.formatDecimal(attraction.price / 7.45, 1, 2, 'COMMA') + ' EUR' : 'Gratis'}"></td>
+                    <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle;" th:text="${attraction.price != 0.0 ? #numbers.formatDecimal(attraction.price / 7.45, 1, 2, 'COMMA') + ' EUR' : 'Free'}"></td>
                     <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle; white-space: normal; min-width: 140px;">
                         <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}" style="display: block; margin-bottom: 6px;">
                             <button type="button" style="padding: 6px 10px; font-size: 0.8rem; background-color: #0059b3; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%;">✏️ Rediger</button>
