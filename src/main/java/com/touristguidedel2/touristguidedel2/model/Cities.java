@@ -21,7 +21,8 @@ public enum Cities {
     SOENDERBORG("Sønderborg"),
     SVENDBORG("Svendborg"),
     FREDERICIA("Fredericia"),
-    HELSINGOER("Helsingør");
+    HELSINGOER("Helsingør"),
+    BILLUND("Billund");
 
     private final String displayName;
 

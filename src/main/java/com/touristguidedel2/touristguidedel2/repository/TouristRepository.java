@@ -97,7 +97,7 @@ public class TouristRepository {
         attractions.add(new TouristAttraction(
                 "Legoland Billund",
                 "En forlystelsespark bygget af LEGO-klodser for hele familien",
-                Cities.VEJLE,
+                Cities.BILLUND,
                 List.of(Tags.KID_FRIENDLY, Tags.ENTERTAINMENT),
                 299.0
         ));
