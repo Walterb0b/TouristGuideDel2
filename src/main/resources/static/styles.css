@@ -137,6 +137,7 @@ section h2 {
     background: linear-gradient(135deg, #003366 0%, #0059b3 100%);
     color: white !important;
     grid-column: 1 / -1;
+    transform: none !important;
 }
 
 .welcome-card h2 {
@@ -170,6 +171,7 @@ section h2 {
 .info-section {
     grid-column: 1 / -1;
     background-color: #f9f9f9;
+    transform: none !important;
 }
 
 .info-section h2 {
@@ -219,10 +221,16 @@ footer {
     font-size: 0.9rem;
 }
 
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
 /* FORMS */
 .form-card {
     max-width: 100%;
     margin: 0 auto;
+    transform: none !important;
 }
 
 .form-title {
@@ -236,12 +244,14 @@ footer {
     grid-column: 1 / -1;
     overflow-x: auto;
     padding: 0;
+    transform: none !important;
 }
 
 .form-group {
     margin-bottom: 18px;
     display: flex;
     flex-direction: column;
+    transform: none !important;
 }
 
 .form-group label {
