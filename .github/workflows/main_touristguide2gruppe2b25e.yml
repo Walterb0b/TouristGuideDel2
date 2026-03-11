@@ -21,7 +21,7 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v4
         with:
-          java-version: 'java25'
+          java-version: 'java21'
           distribution: 'microsoft'
 
       - name: Build with Maven
@@ -60,4 +60,5 @@ jobs:
           app-name: 'TouristGuide2Gruppe2B25E'
           slot-name: 'Production'
           package: '*.jar'
+
           
