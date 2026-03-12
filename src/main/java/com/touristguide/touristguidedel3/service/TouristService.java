@@ -1,7 +1,7 @@
-package com.touristguidedel2.touristguidedel2.service;
+package com.touristguide.touristguidedel3.service;
 
-import com.touristguidedel2.touristguidedel2.model.TouristAttraction;
-import com.touristguidedel2.touristguidedel2.repository.TouristRepository;
+import com.touristguide.touristguidedel3.model.TouristAttraction;
+import com.touristguide.touristguidedel3.repository.TouristRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,8 +18,8 @@ public class TouristService {
         return repository.getAllAttractions();
     }
 
-    public TouristAttraction getAttractionByName(String name) {
-        return repository.getAttractionByName(name);
+    public TouristAttraction getAttractionById(Long id) {
+        return repository.getAttractionById(id);
     }
 
     public void addAttraction(TouristAttraction attraction) {
@@ -30,7 +30,7 @@ public class TouristService {
         repository.updateAttraction(updatedAttraction);
     }
 
-    public void deleteAttraction(String name) {
-        repository.deleteAttraction(name);
+    public void deleteAttraction(Long id) {
+        repository.deleteAttraction(id);
     }
 }

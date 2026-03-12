@@ -1,15 +1,18 @@
-package com.touristguidedel2.touristguidedel2.model;
+package com.touristguide.touristguidedel3.model;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TouristAttraction {
+    private Long id;
     private String name;
     private String description;
-    private Cities city;
-    private List<Tags> tags;
-    private double price;
+    private City city;
+    private List<Tag> tags = new ArrayList<>();
+    private BigDecimal price;
 
-    public TouristAttraction(String name, String description, Cities city, List<Tags> tags, double price) {
+    public TouristAttraction(String name, String description, City city, List<Tag> tags, BigDecimal price) {
         this.name = name;
         this.description = description;
         this.city = city;
@@ -18,6 +21,14 @@ public class TouristAttraction {
     }
 
     public TouristAttraction(){}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -33,27 +44,27 @@ public class TouristAttraction {
         this.description = description;
     }
 
-    public List<Tags> getTags() {
+    public List<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(List<Tags> tags) {
+    public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
 
-    public Cities getCity() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity(Cities city) {
+    public void setCity(City city) {
         this.city = city;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }

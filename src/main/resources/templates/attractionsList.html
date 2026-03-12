@@ -36,13 +36,13 @@
                     <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle;" th:text="${attraction.price != 0.0 ? attraction.price + ' DKK' : 'Gratis'}"></td>
                     <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle;" th:text="${attraction.price != 0.0 ? #numbers.formatDecimal(attraction.price / 7.45, 1, 2, 'COMMA') + ' EUR' : 'Free'}"></td>
                     <td style="padding: 14px 8px; font-size: 0.85rem; vertical-align: middle; white-space: normal; min-width: 140px;">
-                        <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}" style="display: block; margin-bottom: 6px;">
+                        <a th:href="@{|/attractions/${attraction.id}/edit|}" style="display: block; margin-bottom: 6px;">
                             <button type="button" style="padding: 6px 10px; font-size: 0.8rem; background-color: #0059b3; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%;">✏️ Rediger</button>
                         </a>
-                        <a th:href="@{/attractions/{name}/tags(name=${attraction.name})}" style="display: block; margin-bottom: 6px;">
+                        <a th:href="@{|/attractions/${attraction.id}/tags|}" style="display: block; margin-bottom: 6px;">
                             <button type="button" style="padding: 6px 10px; font-size: 0.8rem; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%;">🏷️ Tags</button>
                         </a>
-                        <form th:action="@{/attractions/{name}/delete(name=${attraction.name})}" method="post" style="display: block;">
+                        <form th:action="@{|/attractions/${attraction.id}/delete|}" method="post" style="display: block;">
                             <button type="submit" style="padding: 6px 10px; font-size: 0.8rem; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%;">🗑️ Slet</button>
                         </form>
                     </td>
