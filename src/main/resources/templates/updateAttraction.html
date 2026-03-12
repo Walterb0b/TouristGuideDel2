@@ -20,6 +20,8 @@
         <h2 class="form-title">✏️ Rediger Attraktion</h2>
         <form action="#" th:action="@{/attractions/update}" th:object="${touristAttraction}" method="post">
 
+            <input type="hidden" th:field="*{id}" />
+
             <div class="form-group">
                 <label for="name">Navn</label>
                 <input type="text" id="name" th:value="*{name}" readonly>
@@ -35,7 +37,7 @@
                 <label for="city">By</label>
                 <select id="city" th:field="*{city}">
                     <option th:each="city : ${cities}"
-                            th:value="${city}"
+                            th:value="${city.name()}"
                             th:text="${city.displayName}">
                     </option>
                 </select>
@@ -45,7 +47,7 @@
                 <label>Tags</label>
                 <div th:each="tag : ${tags}" class="checkbox-item">
                     <input type="checkbox" th:field="*{tags}" th:value="${tag}" th:id="'tag-' + ${tag}">
-                    <label th:for="'tag-' + ${tag}" th:text="${tag.displayName}"></label>
+                    <label th:for="'tag-' + ${tag}" th:text="${tag.name}"></label>
                 </div>
             </div>
 

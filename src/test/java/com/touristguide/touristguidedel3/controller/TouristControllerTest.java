@@ -1,9 +1,9 @@
-package com.touristguidedel2.touristguidedel2.controller;
+package com.touristguide.touristguidedel3.controller;
 
-import com.touristguidedel2.touristguidedel2.model.Cities;
-import com.touristguidedel2.touristguidedel2.model.Tags;
-import com.touristguidedel2.touristguidedel2.model.TouristAttraction;
-import com.touristguidedel2.touristguidedel2.service.TouristService;
+import com.touristguide.touristguidedel3.model.City;
+import com.touristguide.touristguidedel3.model.Tag;
+import com.touristguide.touristguidedel3.model.TouristAttraction;
+import com.touristguide.touristguidedel3.service.TouristService;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +33,7 @@ class TouristControllerTest {
     @Test
     void getAllAttractions() throws Exception {
         List<TouristAttraction> attractions = new ArrayList<>();
-        attractions.add(new TouristAttraction("Legoland", "Forlystelsespark", Cities.VEJLE, List.of(Tags.ENTERTAINMENT, Tags.KID_FRIENDLY), 299.0));
+        attractions.add(new TouristAttraction("Legoland", "Forlystelsespark", City.VEJLE, List.of(Tag.ENTERTAINMENT, Tag.KID_FRIENDLY), new BigDecimal("299.00")));
 
         when(touristService.getAllAttractions()).thenReturn(attractions);
 
@@ -45,7 +46,7 @@ class TouristControllerTest {
 
     @Test
     void saveAttraction() throws Exception{
-        TouristAttraction touristAttraction = new TouristAttraction("Legoland", "Forlystelsespark", Cities.VEJLE, List.of(Tags.ENTERTAINMENT, Tags.KID_FRIENDLY), 299.0);
+        TouristAttraction touristAttraction = new TouristAttraction("Legoland", "Forlystelsespark", City.VEJLE, List.of(Tag.ENTERTAINMENT, Tag.KID_FRIENDLY), new BigDecimal("299.00"));
 
         mockMvc.perform(post("/attractions/save")
                 .param("name", touristAttraction.getName())
@@ -62,8 +63,8 @@ class TouristControllerTest {
         TouristAttraction captured = captor.getValue();
         assertEquals("Legoland", captured.getName());
         assertEquals("Forlystelsespark", captured.getDescription());
-        assertEquals(Cities.VEJLE, captured.getCity());
-        assertEquals(List.of(Tags.ENTERTAINMENT, Tags.KID_FRIENDLY), captured.getTags());
+        assertEquals(City.VEJLE, captured.getCity());
+        assertEquals(List.of(Tag.ENTERTAINMENT, Tag.KID_FRIENDLY), captured.getTags());
 
     }
 }

@@ -1,13 +1,13 @@
-package com.touristguidedel2.touristguidedel2;
+package com.touristguide.touristguidedel3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TouristGuideDel2Application {
+public class TouristGuideDel3Application {
 
     static void main(String[] args) {
-        SpringApplication.run(TouristGuideDel2Application.class, args);
+        SpringApplication.run(TouristGuideDel3Application.class, args);
     }
 
 }

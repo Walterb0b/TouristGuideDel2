@@ -1,7 +1,8 @@
-package com.touristguidedel2.touristguidedel2.model;
+package com.touristguide.touristguidedel3.model;
 
-public enum Cities {
+import java.nio.charset.StandardCharsets;
 
+public enum City {
     COPENHAGEN("København"),
     AARHUS("Aarhus"),
     ODENSE("Odense"),
@@ -26,11 +27,25 @@ public enum Cities {
 
     private final String displayName;
 
-    Cities(String displayName) {
+    City(String displayName) {
         this.displayName = displayName;
     }
 
     public String getDisplayName() {
         return displayName;
+    }
+
+    public static City fromDb(String dbName) {
+        if (dbName == null) {
+            throw new IllegalArgumentException("City value from DB is null");
+        }
+
+        // Trim og ignore case
+        for (City c : values()) {
+            if (c.name().equalsIgnoreCase(dbName.trim())) {
+                return c;
+            }
+        }
+        throw new IllegalArgumentException("Unknown city: " + dbName);
     }
 }

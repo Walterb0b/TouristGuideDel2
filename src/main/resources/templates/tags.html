@@ -19,7 +19,7 @@
     <section class="form-card">
         <h2 class="form-title">🏷️ Tilknyttede Tags</h2>
         <div class="tags">
-            <span class="tag" th:each="tag : ${tags}" th:text="${tag.displayName}"></span>
+            <span class="tag" th:each="tag : ${tags}" th:text="${tag.name}"></span>
         </div>
         <div class="form-actions">
             <a href="/attractions">

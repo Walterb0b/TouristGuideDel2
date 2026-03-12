@@ -1,9 +1,9 @@
-package com.touristguidedel2.touristguidedel2.controller;
+package com.touristguide.touristguidedel3.controller;
 
-import com.touristguidedel2.touristguidedel2.model.Cities;
-import com.touristguidedel2.touristguidedel2.model.Tags;
-import com.touristguidedel2.touristguidedel2.model.TouristAttraction;
-import com.touristguidedel2.touristguidedel2.service.TouristService;
+import com.touristguide.touristguidedel3.model.City;
+import com.touristguide.touristguidedel3.model.Tag;
+import com.touristguide.touristguidedel3.model.TouristAttraction;
+import com.touristguide.touristguidedel3.service.TouristService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -28,32 +28,30 @@ public class TouristController {
         return "attractionsList";
     }
 
-    @GetMapping("/{name}/tags")
-    public String getAttractionTags(Model model, @PathVariable String name) {
-        TouristAttraction touristAttraction = touristService.getAttractionByName(name);
+    @GetMapping("/{id}/tags")
+    public String getAttractionTags(Model model, @PathVariable Long id) {
+        TouristAttraction touristAttraction = touristService.getAttractionById(id);
         if(touristAttraction == null) {
-            throw new IllegalArgumentException("Invalid attraction!" + name);
+            throw new IllegalArgumentException("Invalid attraction!" + id);
         }
 
         model.addAttribute("touristAttraction", touristAttraction);
         model.addAttribute("tags", touristAttraction.getTags());
-
         return "tags";
-
     }
 
     //Display the Attraction edit form
-    @GetMapping("/{name}/edit")
-    public String editAttraction(@PathVariable String name, Model model) {
-        TouristAttraction touristAttraction = touristService.getAttractionByName(name);
+    @GetMapping("/{id}/edit")
+    public String editAttraction(@PathVariable Long id, Model model) {
+        TouristAttraction touristAttraction = touristService.getAttractionById(id);
 
         if(touristAttraction == null) {
-            throw new IllegalArgumentException("Invalid attraction! " + name);
+            throw new IllegalArgumentException("Invalid attraction! " + id);
         }
 
         model.addAttribute("touristAttraction", touristAttraction);
-        model.addAttribute("cities", Cities.values());
-        model.addAttribute("tags", Tags.values());
+        model.addAttribute("cities", City.values());
+        model.addAttribute("tags", Tag.values());
 
         return "updateAttraction";
     }
@@ -69,8 +67,8 @@ public class TouristController {
     public String addAttraction(Model model) {
         TouristAttraction touristAttraction = new TouristAttraction();
         model.addAttribute("touristAttraction", touristAttraction);
-        model.addAttribute("cities", Cities.values());
-        model.addAttribute("tags", Tags.values());
+        model.addAttribute("cities", City.values());
+        model.addAttribute("tags", Tag.values());
         return "addAttraction";
     }
 
@@ -80,9 +78,9 @@ public class TouristController {
         return "redirect:/attractions";
     }
 
-    @PostMapping("/{name}/delete")
-    public String deleteAttraction(@PathVariable String name) {
-        touristService.deleteAttraction(name);
+    @PostMapping("/{id}/delete")
+    public String deleteAttraction(@PathVariable Long id) {
+        touristService.deleteAttraction(id);
         return "redirect:/attractions";
     }
 }
