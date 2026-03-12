@@ -18,7 +18,7 @@ public class TouristAttractionRowMapper implements RowMapper<TouristAttraction> 
         touristAttraction.setName(rs.getString("name"));
         touristAttraction.setDescription(rs.getString("description"));
         touristAttraction.setPrice(rs.getBigDecimal("price"));
-        touristAttraction.setCity(City.fromDb(rs.getString("city"))); // robust mapping
+        touristAttraction.setCity(City.fromDb(rs.getString("city")));
         touristAttraction.setTags(new ArrayList<>());
 
         return touristAttraction;
